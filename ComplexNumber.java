@@ -16,11 +16,11 @@ public class ComplexNumber {
     private float b;
 
     //get methods for a and b
-    float getA() {
+    public float getA() {
         return a;
     }
 
-    float getB() {
+    public float getB() {
         return b;
     }
 
@@ -109,7 +109,13 @@ public class ComplexNumber {
      * @return a String that shows the complex number in the form of a + bi
      */
     public String toString() {
-        String complexNumber = a + " + " + b + "i";
-        return complexNumber;
+        return format(a) + " + " + format(b) + "i";
     }
+	
+	private String format(float d) {
+		if (d == (long) d)
+			return String.format("%d",(long)d);
+		else
+			return String.format("%s",d);
+	}
 }
